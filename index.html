@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Growth</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/materialCalculate.js"></script>
+</head>
+<body>
+
+
+<!--<form>-->
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Raw Material Mass Calculation</div>
+    <div class="panel-body">
+        <p>
+            <b> Criteria </b>
+                <input type="radio" id="totalMassCriteria" name="criteria" checked>
+            <b> Total Mass (g): </b>
+                <input type="number" id="totalMass" name="totalMass" min="0">
+        </p>
+
+        <br />
+    </div>
+
+    <!-- Table -->
+    <table id="elementTable" class="table">
+        <tr>
+            <th> Criteria </th>
+            <th> Custom </th>
+            <th> Element </th>
+            <th> AtomicMass </th>
+            <th> Ratio </th>
+            <th> Mass (g) </th>
+        </tr>
+
+        <tr class="unit-table">
+            <td>
+                <input type="radio" name="criteria">
+            </td>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="number" min="0">
+            </td>
+            <td>
+                <input type="number" min="0">
+            </td>
+            <td>
+                <input type="number" min="0">
+            </td>
+        </tr>
+
+
+    </table>
+</div>
+
+<button id="add_btn">Add new row</button>
+<button id="delete_btn">Delete last row</button>
+<button id="calculate_btn">Calculate</button>
+<!--</form>-->
+
+
+
+</body>
+</html>
