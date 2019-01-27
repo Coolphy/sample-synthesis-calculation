@@ -18,11 +18,11 @@
 
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Raw Material Mass Calculation</div>
+    <div class="panel-heading">Raw Material Mass Calculator</div>
     <div class="panel-body">
         <p>
             <b> Criteria </b>
-                <input type="radio" id="totalMassCriteria" name="criteria" checked>
+                <input type="radio" id="totalMassCriteria" name="criteria" checked onclick="handleCriteriaClick(this)">
             <b> Total Mass (g): </b>
                 <input type="number" id="totalMass" name="totalMass" min="0">
         </p>
@@ -35,29 +35,29 @@
             <th> Criteria </th>
             <th> Custom </th>
             <th> Element </th>
-            <th> AtomicMass </th>
+            <th> Atomic Weight </th>
             <th> Ratio </th>
             <th> Mass (g) </th>
         </tr>
 
         <tr class="unit-table">
             <td>
-                <input type="radio" name="criteria">
+                <input type="radio" name="criteria" onclick="handleCriteriaClick()">
             </td>
             <td>
-                <input type="checkbox">
+                <input type="checkbox" onclick="handleCustomClick()">
             </td>
             <td>
                 <input type="text">
             </td>
             <td>
-                <input type="number" min="0">
+                <input type="number" min="0" disabled="disabled">
             </td>
             <td>
                 <input type="number" min="0">
             </td>
             <td>
-                <input type="number" min="0">
+                <input type="number" min="0"  disabled="disabled">
             </td>
         </tr>
 

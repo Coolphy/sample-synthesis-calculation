@@ -10,15 +10,36 @@ function addRow() {
     var units = document.getElementsByClassName('unit-table');
     var tr = document.createElement('tr');
     tr.className = 'unit-table';
+    var rowNum = table.rows.length;
+    var newRow = table.insertRow(rowNum);
+
+    var cell0 = newRow.insertCell(0);
+    var cell1 = newRow.insertCell(1);
+    var cell2 = newRow.insertCell(2);
+    var cell3 = newRow.insertCell(3);
+    var cell4 = newRow.insertCell(4);
+    var cell5 = newRow.insertCell(5);
+
+    cell0.innerHTML = "<input type=\"radio\" name=\"criteria\" onclick=\"handleCriteriaClick()\">";
+    cell1.innerHTML = "<input type=\"checkbox\" onclick=\"handleCustomClick()\">";
+    cell2.innerHTML = "<input type=\"text\">";
+    cell3.innerHTML = "<input type=\"number\" min=\"0\" disabled=\"disabled\">";
+    cell4.innerHTML = "<input type=\"number\" min=\"0\">";
+    cell5.innerHTML = "<input type=\"number\" min=\"0\"  disabled=\"disabled\">";
+
+/*
     for(var i = 0; i < colNum; i++){
         var td = document.createElement('td');
         var text = document.createElement('input');
         text.type = units[0].getElementsByTagName("td")[i].getElementsByTagName("input")[0].getAttribute("type");
+        text.onclick = units[0].getElementsByTagName("td")[i].getElementsByTagName("input")[0].getAttribute("onclick");
         text.name = units[0].getElementsByTagName("td")[i].getElementsByTagName("input")[0].getAttribute("name");
+        text.disabled = units[0].getElementsByTagName("td")[i].getElementsByTagName("input")[0].getAttribute("disabled");
         td.appendChild(text);
         tr.appendChild(td);
     }
     table.appendChild(tr);
+    */
 }
 
 function deleteRow() {
@@ -28,6 +49,38 @@ function deleteRow() {
         $('tr:last').remove()
     }
 }
+
+function handleCriteriaClick() {
+    if (document.getElementById('totalMassCriteria').checked) {
+        document.getElementById('totalMass').disabled = false;
+    } else {
+        document.getElementById('totalMass').disabled = true;
+    }
+    var table = document.getElementById('elementTable');
+    var rowNum = table.rows.length;
+    for (var rowIndex = 1; rowIndex < rowNum; rowIndex++) {
+        var rowCells = table.rows.item(rowIndex).cells;
+        if (rowCells.item(0).children[0].checked) {
+            rowCells.item(5).children[0].disabled = false;
+        } else {
+            rowCells.item(5).children[0].disabled = true;
+        }
+    }
+}
+
+function handleCustomClick() {
+    var table = document.getElementById('elementTable');
+    var rowNum = table.rows.length;
+    for (var rowIndex = 1; rowIndex < rowNum; rowIndex++) {
+        var rowCells = table.rows.item(rowIndex).cells;
+        if (rowCells.item(1).children[0].checked) {
+            rowCells.item(3).children[0].disabled = false;
+        } else {
+            rowCells.item(3).children[0].disabled = true;
+        }
+    }
+}
+
 
 function calculate() {
     var table = document.getElementById('elementTable');
