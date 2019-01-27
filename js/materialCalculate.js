@@ -84,7 +84,7 @@ function calculate() {
             return;
         }
     }
-    document.getElementById('totalMass').value = totalAtomicMass * unitMass;
+    document.getElementById('totalMass').value = parseFloat(totalAtomicMass * unitMass).toFixed(5);
 
     for (var rowIndex = 1; rowIndex < rowNum; rowIndex++) {
         var rowCells = table.rows.item(rowIndex).cells;
